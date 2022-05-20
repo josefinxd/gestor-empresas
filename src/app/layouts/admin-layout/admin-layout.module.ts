@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +14,11 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { EmpresasComponent } from '../../pages/empresas/empresas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddEmpresasComponent } from 'src/app/pages/empresas/addempresa/addempresas.component';
-// import { ToastrModule } from 'ngx-toastr';
+import { EditEmpresasComponent } from 'src/app/pages/empresas/editempresa/editempresas.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   imports: [
@@ -24,7 +28,11 @@ import { AddEmpresasComponent } from 'src/app/pages/empresas/addempresa/addempre
     HttpClientModule,
     NgbModule,
     ClipboardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    NgxSpinnerModule,
+    ButtonModule,
+    ConfirmDialogModule
   ],
   declarations: [
     DashboardComponent,
@@ -33,7 +41,11 @@ import { AddEmpresasComponent } from 'src/app/pages/empresas/addempresa/addempre
     IconsComponent,
     MapsComponent,
     EmpresasComponent,
-    AddEmpresasComponent
+    AddEmpresasComponent,
+    EditEmpresasComponent,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 

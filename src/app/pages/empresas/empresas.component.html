@@ -1,3 +1,5 @@
+<ngx-spinner type="pacman"><p style="font-size: 20px; color: white">Loading...</p></ngx-spinner>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
@@ -44,8 +46,8 @@
                   {{empresa.tipo}}
                 </td>
                 <td class="text-right">
-                  <button class="btn btn-sm btn-primary">Editar</button>
-                  <button class="btn btn-sm btn-danger">Eliminar</button>
+                  <button class="btn btn-sm btn-primary" (click)="Editar(empresa)">Editar</button>
+                  <button class="btn btn-sm btn-danger" (click)="Eliminar(empresa)">Eliminar</button>
                 </td>
               </tr>
             </tbody>

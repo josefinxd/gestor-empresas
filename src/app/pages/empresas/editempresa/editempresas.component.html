@@ -9,22 +9,22 @@
   <div class = "container col-md-6 ">
     <div class="card">
       <div class="card-header">
-        <h3>Agregar Empresa</h3>
+        <h3>Editar Empresa</h3>
       </div>
       <div class="card-body">
         <form [formGroup]="datos" (ngSubmit)="Guardar($event)">
           <div class="form-group">
             <label for="">Nombre:</label>
-            <input type="text" class="form-control" formControlName="nombre" required="true">
+            <input type="text" class="form-control" formControlName="nombre">
           </div>
           <div class="form-group">
             <label for="">Dirección:</label>
-            <input type="text" class="form-control" formControlName="direccion" required="true">
+            <input type="text" class="form-control" formControlName="direccion" >
           </div>
           <div class="form-group">
             <label for="">Tipo:</label>
             <select class="form-control" data-toggle="select" title="Simple select" formControlName="tipo">
-              <option value="Interna" [selected]="true">Interna</option>
+              <option value="Interna">Interna</option>
               <option value="Externa">Externa</option>
               <option value="Cliente">Cliente</option>
           </select>
