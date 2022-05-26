@@ -19,6 +19,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { UsuariosComponent } from 'src/app/pages/usuarios/usuarios.component';
+import { AddUsuariosComponent } from 'src/app/pages/usuarios/addusuario/addusuarios.component';
+import { EditUsuariosComponent } from 'src/app/pages/usuarios/editusuario/editusuarios.component';
 
 @NgModule({
   imports: [
@@ -43,6 +46,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     EmpresasComponent,
     AddEmpresasComponent,
     EditEmpresasComponent,
+    UsuariosComponent,
+    AddUsuariosComponent,
+    EditUsuariosComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

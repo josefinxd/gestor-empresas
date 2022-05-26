@@ -8,6 +8,9 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { EmpresasComponent } from '../../pages/empresas/empresas.component';
 import { AddEmpresasComponent } from 'src/app/pages/empresas/addempresa/addempresas.component';
 import { EditEmpresasComponent } from 'src/app/pages/empresas/editempresa/editempresas.component';
+import { UsuariosComponent } from 'src/app/pages/usuarios/usuarios.component';
+import { AddUsuariosComponent } from 'src/app/pages/usuarios/addusuario/addusuarios.component';
+import { EditUsuariosComponent } from 'src/app/pages/usuarios/editusuario/editusuarios.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -17,5 +20,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'empresas',       component: EmpresasComponent },
     { path: 'addempresa',     component:AddEmpresasComponent },
-    { path: 'editempresa',    component:EditEmpresasComponent }
+    { path: 'editempresa',    component:EditEmpresasComponent },
+    { path: 'usuarios',       component: UsuariosComponent },
+    { path: 'addusuario',     component:AddUsuariosComponent },
+    { path: 'editusuario',    component:EditUsuariosComponent },
 ];

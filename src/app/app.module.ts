@@ -20,6 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { UsuarioService } from './services/usuario.service';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     AuthLayoutComponent
   ],
   providers: [
-    EmpresaService],
+    EmpresaService,
+    UsuarioService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
