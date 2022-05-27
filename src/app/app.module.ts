@@ -21,6 +21,11 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { UsuarioService } from './services/usuario.service';
+import { ProductoService } from './services/producto.service';
+import { AsignacionService } from './services/asignaciones.service';
+import { DetalleService } from './services/detalle.service';
+import { OrdenService } from './services/orden.service';
+import { ReunionService } from './services/reunion.service';
 
 
 @NgModule({
@@ -47,7 +52,12 @@ import { UsuarioService } from './services/usuario.service';
   ],
   providers: [
     EmpresaService,
-    UsuarioService],
+    UsuarioService,
+    ProductoService,
+    AsignacionService,
+    DetalleService,
+    OrdenService,
+    ReunionService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
