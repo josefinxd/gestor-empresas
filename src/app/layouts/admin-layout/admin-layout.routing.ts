@@ -14,6 +14,9 @@ import { EditUsuariosComponent } from 'src/app/pages/usuarios/editusuario/editus
 import { AsignacionesComponent } from 'src/app/pages/asignaciones/asignaciones.component';
 import { AddAsignacionesComponent } from 'src/app/pages/asignaciones/addasignacion/addasignaciones.component';
 import { EditAsignacionesComponent } from 'src/app/pages/asignaciones/editasignacion/editasignaciones.component';
+import { ProductosComponent } from 'src/app/pages/productos/productos.component';
+import { AddProductosComponent } from 'src/app/pages/productos/addusuario/addproductos.component';
+import { EditProductosComponent } from 'src/app/pages/productos/editusuario/editproductos.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -30,4 +33,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'asignaciones',   component: AsignacionesComponent },
     { path: 'addasignacion',  component: AddAsignacionesComponent },
     { path: 'editasignacion', component: EditAsignacionesComponent },
+    { path: 'productos',      component: ProductosComponent },
+    { path: 'addproducto',    component: AddProductosComponent },
+    { path: 'editproducto',   component: EditProductosComponent },
 ];

@@ -22,11 +22,19 @@ export class EditAsignacionesComponent implements OnInit{
   constructor(private serviceEmpresa:EmpresaService, private serviceUsuario:UsuarioService,
     private serviceAsignacion:AsignacionService, private router:Router, private builder:FormBuilder,
     private toastr: ToastrService) {
-      console.log("Constructor");
-      this.createBuilder();
+    this.createBuilder();
+  }
+
+  loadInfo(){
     this.serviceAsignacion.getAsignacionId(+localStorage.getItem("idasignacion"))
       .subscribe(data => {
         this.asignacion = data;
+        this.datos.patchValue({
+          rol: this.asignacion.rol,
+          empresa: this.asignacion.idempresa.idempresa,
+          usuario: this.asignacion.idusuario.idusuario
+        })
+        console.log('asignacion',this.asignacion)
       })
       this.serviceEmpresa.getEmpresas()
     .subscribe(data=>{
@@ -49,7 +57,7 @@ export class EditAsignacionesComponent implements OnInit{
   }
 
   ngOnInit(){
-    console.log("ngOnInit");
+    this.loadInfo();
   }
 
   Cancelar(){
@@ -59,7 +67,7 @@ export class EditAsignacionesComponent implements OnInit{
 
   Guardar(event:Event){
     console.log(this.datos.value)
-    /*console.log(this.datos.valid);
+    console.log(this.datos.valid);
     if(this.datos.value.usuario === ''){
       this.toastr.error("Debe seleccionar un usuario!", "Error",{
         timeOut:3000
@@ -78,11 +86,11 @@ export class EditAsignacionesComponent implements OnInit{
       console.log(this.asignacion);
       this.serviceAsignacion.createAsignacion(this.asignacion)
     .subscribe(data=>{
-      this.toastr.success("Se ha guardado el registro!", "Exitoso",{
+      this.toastr.success("Se ha actualizado el registro!", "Exitoso",{
         timeOut:3000
       })
       this.router.navigate(["asignaciones"])
-    })}*/
+    })}
   }
 
 }

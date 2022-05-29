@@ -25,6 +25,9 @@ import { EditUsuariosComponent } from 'src/app/pages/usuarios/editusuario/editus
 import { AsignacionesComponent } from 'src/app/pages/asignaciones/asignaciones.component';
 import { AddAsignacionesComponent } from 'src/app/pages/asignaciones/addasignacion/addasignaciones.component';
 import { EditAsignacionesComponent } from 'src/app/pages/asignaciones/editasignacion/editasignaciones.component';
+import { ProductosComponent } from 'src/app/pages/productos/productos.component';
+import { AddProductosComponent } from 'src/app/pages/productos/addusuario/addproductos.component';
+import { EditProductosComponent } from 'src/app/pages/productos/editusuario/editproductos.component';
 
 @NgModule({
   imports: [
@@ -55,6 +58,9 @@ import { EditAsignacionesComponent } from 'src/app/pages/asignaciones/editasigna
     AsignacionesComponent,
     AddAsignacionesComponent,
     EditAsignacionesComponent,
+    ProductosComponent,
+    AddProductosComponent,
+    EditProductosComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
