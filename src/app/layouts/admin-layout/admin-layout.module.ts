@@ -22,6 +22,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { UsuariosComponent } from 'src/app/pages/usuarios/usuarios.component';
 import { AddUsuariosComponent } from 'src/app/pages/usuarios/addusuario/addusuarios.component';
 import { EditUsuariosComponent } from 'src/app/pages/usuarios/editusuario/editusuarios.component';
+import { AsignacionesComponent } from 'src/app/pages/asignaciones/asignaciones.component';
+import { AddAsignacionesComponent } from 'src/app/pages/asignaciones/addasignacion/addasignaciones.component';
+import { EditAsignacionesComponent } from 'src/app/pages/asignaciones/editasignacion/editasignaciones.component';
 
 @NgModule({
   imports: [
@@ -48,7 +51,10 @@ import { EditUsuariosComponent } from 'src/app/pages/usuarios/editusuario/editus
     EditEmpresasComponent,
     UsuariosComponent,
     AddUsuariosComponent,
-    EditUsuariosComponent
+    EditUsuariosComponent,
+    AsignacionesComponent,
+    AddAsignacionesComponent,
+    EditAsignacionesComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

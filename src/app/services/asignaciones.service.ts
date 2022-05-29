@@ -17,7 +17,7 @@ export class AsignacionService {
     return this.http.post<Asignacion>(this.url,asignacion);
   }
 
-  async getAsignacionId(id:number){
+  getAsignacionId(id:number){
     return this.http.get<Asignacion>(this.url+id)
   }
 
