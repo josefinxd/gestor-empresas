@@ -1,0 +1,44 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <div class = "container col-md-6 ">
+    <div class="card">
+      <div class="card-header">
+        <h3>Editar Producto</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="datos" (ngSubmit)="Guardar($event)">
+          <div class="form-group">
+            <label for="">Nombre:</label>
+            <input type="text" class="form-control" formControlName="nombre" required="true">
+          </div>
+          <div class="form-group">
+            <label for="">Cantidad:</label>
+            <input type="number" class="form-control" formControlName="cantidad" min="1" oninput="this.value=(parseInt(this.value))" required="true">
+          </div>
+          <div class="form-group">
+            <label for="">Precio:</label>
+            <input type="number" class="form-control" formControlName="precio" min="1" required="true">
+          </div>
+          <div class="form-group">
+            <label for="">Empresa:</label>
+            <select class="form-control" data-toggle="select" title="Simple select" formControlName="empresa" placeholder="Seleccione una empresa..">
+              <option *ngFor="let empresa of empresas" value="{{empresa.idempresa}}" >{{empresa.nombre}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+            <button type="button" (click)="Cancelar()" class="btn btn-sm btn-danger">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

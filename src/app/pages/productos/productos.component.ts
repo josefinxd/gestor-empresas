@@ -28,6 +28,7 @@ export class ProductosComponent implements OnInit {
       this.productos=data;
       this.spinner.hide();
       this.primengConfig.ripple = true;
+      console.log(this.productos)
     })
   }
   Nuevo(){

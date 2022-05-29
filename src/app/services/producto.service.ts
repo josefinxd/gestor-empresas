@@ -17,7 +17,7 @@ export class ProductoService {
     return this.http.post<Producto>(this.url,producto);
   }
 
-  async getProductoId(id:number){
+  getProductoId(id:number){
     return this.http.get<Producto>(this.url+id)
   }
 

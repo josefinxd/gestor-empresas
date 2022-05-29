@@ -37,9 +37,6 @@ export class AsignacionesComponent implements OnInit {
 
   Editar(asignacion:Asignacion):void{
     localStorage.setItem("idasignacion",asignacion.idasignacion.toString());
-    localStorage.setItem("rol",asignacion.rol.toString());
-    localStorage.setItem("idempresa",asignacion.idempresa.nombre.toString());
-    localStorage.setItem("idusuario",asignacion.idusuario.usuario.toString());
     this.router.navigate(["editasignacion"]);
   }
 

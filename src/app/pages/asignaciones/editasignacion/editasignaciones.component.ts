@@ -49,9 +49,9 @@ export class EditAsignacionesComponent implements OnInit{
   createBuilder(){
     console.log("createBuilder");
     this.datos = this.builder.group({
-      rol: [localStorage.getItem("rol"), Validators.required],
-			usuario: [localStorage.getItem("idusuario"), Validators.required],
-      empresa: [localStorage.getItem("idempresa"), Validators.required]
+      rol: ['', Validators.required],
+			usuario: ['', Validators.required],
+      empresa: ['', Validators.required]
     });
     console.log(this.datos.value)
   }
