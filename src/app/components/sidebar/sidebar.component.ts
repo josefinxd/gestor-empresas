@@ -14,7 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/empresas', title: 'Empresas',  icon:'ni-building text-grey', class: '' },
     { path: '/asignaciones', title: 'Asignaciones',  icon:'ni-bullet-list-67 text-brown', class: '' },
     { path: '/productos', title: 'Productos',  icon:'ni-box-2 text-purple', class: '' },
-    { path: '/tables', title: 'Reuniones',  icon:'ni-calendar-grid-58 text-green', class: '' },
+    { path: '/reuniones', title: 'Reuniones',  icon:'ni-calendar-grid-58 text-green', class: '' },
     { path: '/tables', title: 'Ordenes',  icon:'ni-cart text-black', class: '' },
 ];
 

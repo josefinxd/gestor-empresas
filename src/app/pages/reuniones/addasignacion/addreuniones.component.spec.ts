@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { AddAsignacionesComponent } from './addasignaciones.component';
+import { AddReunionesComponent } from './addreuniones.component';
 
-describe('AsignacionesComponent', () => {
-  let component: AddAsignacionesComponent;
-  let fixture: ComponentFixture<AddAsignacionesComponent>;
+describe('ReunionesComponent', () => {
+  let component: AddReunionesComponent;
+  let fixture: ComponentFixture<AddReunionesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddAsignacionesComponent ],
+      declarations: [ AddReunionesComponent ],
       imports: [ReactiveFormsModule],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddAsignacionesComponent);
+    fixture = TestBed.createComponent(AddReunionesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

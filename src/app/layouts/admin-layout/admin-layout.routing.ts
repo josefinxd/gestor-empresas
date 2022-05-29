@@ -17,6 +17,9 @@ import { EditAsignacionesComponent } from 'src/app/pages/asignaciones/editasigna
 import { ProductosComponent } from 'src/app/pages/productos/productos.component';
 import { AddProductosComponent } from 'src/app/pages/productos/addproducto/addproductos.component';
 import { EditProductosComponent } from 'src/app/pages/productos/editproducto/editproductos.component';
+import { ReunionesComponent } from 'src/app/pages/reuniones/reuniones.component';
+import { AddReunionesComponent } from 'src/app/pages/reuniones/addasignacion/addreuniones.component';
+import { EditReunionesComponent } from 'src/app/pages/reuniones/editasignacion/editreuniones.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -36,4 +39,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'productos',      component: ProductosComponent },
     { path: 'addproducto',    component: AddProductosComponent },
     { path: 'editproducto',   component: EditProductosComponent },
+    { path: 'reuniones',      component: ReunionesComponent },
+    { path: 'addreunion',     component: AddReunionesComponent },
+    { path: 'editreunion',    component: EditReunionesComponent },
 ];

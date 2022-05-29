@@ -17,7 +17,7 @@ export class ReunionService {
     return this.http.post<Reunion>(this.url,reunion);
   }
 
-  async getReunionId(id:number){
+  getReunionId(id:number){
     return this.http.get<Reunion>(this.url+id)
   }
 
