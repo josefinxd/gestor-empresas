@@ -4,25 +4,37 @@ import { Empresa } from 'src/app/models/empresa';
 import { EmpresaService } from '../../../services/empresa.service'
 import { FormGroup, FormBuilder, Validators} from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
-import { Reunion } from 'src/app/models/Reunion';
+import { Orden } from 'src/app/models/Orden';
 import { Usuario } from 'src/app/models/usuario';
+import { OrdenService } from 'src/app/services/orden.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { ReunionService } from 'src/app/services/reunion.service';
-
 @Component({
-  selector: 'app-addreuniones',
-  templateUrl: './addreuniones.component.html',
-  styleUrls: ['./addreuniones.component.scss']
+  selector: 'app-editordenes',
+  templateUrl: './editordenes.component.html',
+  styleUrls: ['./editordenes.component.scss']
 })
-export class AddReunionesComponent {
+
+export class EditOrdenesComponent implements OnInit{
   datos: FormGroup;
-  reunion:Reunion = new Reunion();
+  orden:Orden = new Orden();
   empresas:Empresa[];
   usuarios:Usuario[];
-  time = {hour: 10, minute: 10};
   constructor(private serviceEmpresa:EmpresaService, private serviceUsuario:UsuarioService,
-    private serviceReunion:ReunionService, private router:Router, private builder:FormBuilder,private toastr: ToastrService) {
-    this.serviceEmpresa.getEmpresas()
+    private serviceOrden:OrdenService, private router:Router, private builder:FormBuilder,
+    private toastr: ToastrService) {
+    this.createBuilder();
+  }
+
+  loadInfo(){
+    this.serviceOrden.getOrdenId(+localStorage.getItem("idorden"))
+      .subscribe(data => {
+        this.orden = data;
+        this.datos.patchValue({
+          usuario: this.orden.idorden
+        })
+        console.log('orden',this.orden)
+      })
+      this.serviceEmpresa.getEmpresas()
     .subscribe(data=>{
       this.empresas=data;
     })
@@ -30,18 +42,29 @@ export class AddReunionesComponent {
     .subscribe(data=>{
       this.usuarios=data;
     })
-    this.createBuilder();
   }
 
   createBuilder(){
+    console.log("createBuilder");
     this.datos = this.builder.group({
-      rol: ['Usuario', Validators.required],
+      rol: ['', Validators.required],
 			usuario: ['', Validators.required],
       empresa: ['', Validators.required]
     });
+    console.log(this.datos.value)
   }
 
+  ngOnInit(){
+    this.loadInfo();
+  }
+
+  Cancelar(){
+    this.router.navigate(["ordenes"]);
+  }
+
+
   Guardar(event:Event){
+    console.log(this.datos.value)
     console.log(this.datos.valid);
     if(this.datos.value.usuario === ''){
       this.toastr.error("Debe seleccionar un usuario!", "Error",{
@@ -55,20 +78,15 @@ export class AddReunionesComponent {
     }
     console.log(this.datos.value);
     if(this.datos.valid){
-      this.reunion.idusuario = this.usuarios.find(u => u.idusuario == this.datos.value.usuario);
-      console.log(this.reunion);
-      this.serviceReunion.createReunion(this.reunion)
+      this.orden.idcomprador = this.usuarios.find(u => u.idusuario == this.datos.value.usuario);
+      console.log(this.orden);
+      this.serviceOrden.createOrden(this.orden)
     .subscribe(data=>{
-      this.toastr.success("Se ha guardado el registro!", "Exitoso",{
+      this.toastr.success("Se ha actualizado el registro!", "Exitoso",{
         timeOut:3000
       })
-      this.router.navigate(["reuniones"])
+      this.router.navigate(["ordenes"])
     })}
-
-  }
-
-  Cancelar(){
-    this.router.navigate(["reuniones"]);
   }
 
 }

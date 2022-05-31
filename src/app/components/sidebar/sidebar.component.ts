@@ -15,7 +15,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/asignaciones', title: 'Asignaciones',  icon:'ni-bullet-list-67 text-brown', class: '' },
     { path: '/productos', title: 'Productos',  icon:'ni-box-2 text-purple', class: '' },
     { path: '/reuniones', title: 'Reuniones',  icon:'ni-calendar-grid-58 text-green', class: '' },
-    { path: '/tables', title: 'Ordenes',  icon:'ni-cart text-black', class: '' },
+    { path: '/ordenes', title: 'Ordenes',  icon:'ni-cart text-black', class: '' },
 ];
 
 @Component({

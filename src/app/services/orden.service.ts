@@ -17,7 +17,7 @@ export class OrdenService {
     return this.http.post<Orden>(this.url,orden);
   }
 
-  async getOrdenId(id:number){
+  getOrdenId(id:number){
     return this.http.get<Orden>(this.url+id)
   }
 

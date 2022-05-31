@@ -18,8 +18,11 @@ import { ProductosComponent } from 'src/app/pages/productos/productos.component'
 import { AddProductosComponent } from 'src/app/pages/productos/addproducto/addproductos.component';
 import { EditProductosComponent } from 'src/app/pages/productos/editproducto/editproductos.component';
 import { ReunionesComponent } from 'src/app/pages/reuniones/reuniones.component';
-import { AddReunionesComponent } from 'src/app/pages/reuniones/addasignacion/addreuniones.component';
-import { EditReunionesComponent } from 'src/app/pages/reuniones/editasignacion/editreuniones.component';
+import { AddReunionesComponent } from 'src/app/pages/reuniones/addreunion/addreuniones.component';
+import { EditReunionesComponent } from 'src/app/pages/reuniones/editreunion/editreuniones.component';
+import { OrdenesComponent } from 'src/app/pages/ordenes/ordenes.component';
+import { AddOrdenesComponent } from 'src/app/pages/ordenes/addorden/addordenes.component';
+import { EditOrdenesComponent } from 'src/app/pages/ordenes/editorden/editordenes.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -42,4 +45,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'reuniones',      component: ReunionesComponent },
     { path: 'addreunion',     component: AddReunionesComponent },
     { path: 'editreunion',    component: EditReunionesComponent },
+    { path: 'ordenes',        component: OrdenesComponent },
+    { path: 'addorden',       component: AddOrdenesComponent },
+    { path: 'editorden',      component: EditOrdenesComponent },
 ];
