@@ -35,13 +35,13 @@
                   {{reunion.idreunion}}
                 </td>
                 <td>
-                  {{reunion.fecha}}
+                  {{reunion.fecha | date:'yyyy-MM-dd hh:mm aa':'-06:00'}}
                 </td>
                 <td>
                   {{reunion.idusuario.usuario}}
                 </td>
                 <td>
-                  {{reunion.idusuario.usuario}}
+                  {{reunion.idcliente.usuario}}
                 </td>
                 <td class="text-right">
                   <button class="btn btn-sm btn-primary" (click)="Editar(reunion)">Editar</button>

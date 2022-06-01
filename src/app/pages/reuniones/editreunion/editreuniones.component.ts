@@ -8,6 +8,9 @@ import { Reunion } from 'src/app/models/Reunion';
 import { Usuario } from 'src/app/models/usuario';
 import { ReunionService } from 'src/app/services/reunion.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { formatDate } from '@angular/common';
+import { Fecha } from 'src/app/models/fecha';
+
 @Component({
   selector: 'app-editreuniones',
   templateUrl: './editreuniones.component.html',
@@ -19,6 +22,8 @@ export class EditReunionesComponent implements OnInit{
   reunion:Reunion = new Reunion();
   empresas:Empresa[];
   usuarios:Usuario[];
+  fechaJSON:Fecha =  new Fecha();
+
   constructor(private serviceEmpresa:EmpresaService, private serviceUsuario:UsuarioService,
     private serviceReunion:ReunionService, private router:Router, private builder:FormBuilder,
     private toastr: ToastrService) {
@@ -29,10 +34,16 @@ export class EditReunionesComponent implements OnInit{
     this.serviceReunion.getReunionId(+localStorage.getItem("idreunion"))
       .subscribe(data => {
         this.reunion = data;
+        this.fechaJSON.day=+formatDate(this.reunion.fecha, 'dd', 'en-US')
+        this.fechaJSON.month=+formatDate(this.reunion.fecha, 'MM', 'en-US')
+        this.fechaJSON.year=+formatDate(this.reunion.fecha, 'yyyy', 'en-US')
+        console.log(this.fechaJSON)
         this.datos.patchValue({
-          usuario: this.reunion.idusuario.idusuario
+          fecha: this.fechaJSON,
+          hora:  formatDate(this.reunion.fecha, 'HH:mm', 'en-US'),
+          usuario: this.reunion.idusuario.idusuario,
+          cliente:  this.reunion.idcliente.idusuario
         })
-        console.log('reunion',this.reunion)
       })
       this.serviceEmpresa.getEmpresas()
     .subscribe(data=>{
@@ -47,9 +58,10 @@ export class EditReunionesComponent implements OnInit{
   createBuilder(){
     console.log("createBuilder");
     this.datos = this.builder.group({
-      rol: ['', Validators.required],
-			usuario: ['', Validators.required],
-      empresa: ['', Validators.required]
+      fecha: ['2022-26-06', Validators.required],
+      hora: ['10:54', Validators.required],
+      usuario: ['', Validators.required],
+      cliente: ['', Validators.required]
     });
     console.log(this.datos.value)
   }

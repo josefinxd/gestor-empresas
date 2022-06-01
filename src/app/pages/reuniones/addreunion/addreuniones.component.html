@@ -15,7 +15,7 @@
         <form [formGroup]="datos" (ngSubmit)="Guardar($event)">
           <div class="form-group">
             <label for="">Fecha:</label>
-            <input class="form-control datetimepicker" placeholder="Select date" formControlName="fecha" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" type="text"/>
+            <input class="form-control datetimepicker" placeholder="Seleccione una fecha" formControlName="fecha" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" type="text"/>
           </div>
           <div class="form-group">
             <label for="">Hora:</label>
