@@ -28,7 +28,7 @@ export class AddOrdenesComponent {
 
   createBuilder(){
     this.datos = this.builder.group({
-      fecha: ['', Validators.required],
+      tipo: ['Interna', Validators.required],
 			usuario: ['', Validators.required],
       cliente: ['', Validators.required]
     });
@@ -48,7 +48,10 @@ export class AddOrdenesComponent {
     }
     console.log(this.datos.value);
     if(this.datos.valid){
-      this.orden.idcomprador = this.usuarios.find(u => u.idusuario == this.datos.value.usuario);
+      this.orden.tipo = this.datos.value.tipo;
+      this.orden.fecha = new Date();
+      this.orden.idvendedor = this.usuarios.find(u => u.idusuario == this.datos.value.usuario);
+      this.orden.idcomprador = this.usuarios.find(u => u.idusuario == this.datos.value.cliente);
       console.log(this.orden);
       this.serviceOrden.createOrden(this.orden)
     .subscribe(data=>{

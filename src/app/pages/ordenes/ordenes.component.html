@@ -24,6 +24,7 @@
               <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Fecha</th>
+                <th scope="col">Tipo</th>
                 <th scope="col">Usuario</th>
                 <th scope="col">Cliente</th>
                 <th scope="col"></th>
@@ -32,10 +33,10 @@
             <tbody>
               <tr *ngFor="let orden of ordenes">
                 <td>
-                  {{orden.idreunion}}
+                  {{orden.idorden}}
                 </td>
                 <td>
-                  {{orden.fecha}}
+                  {{orden.fecha | date:'yyyy-MM-dd hh:mm aa':'-06:00'}}
                 </td>
                 <td>
                   {{orden.tipo}}
@@ -47,8 +48,8 @@
                   {{orden.idcomprador.usuario}}
                 </td>
                 <td class="text-right">
-                  <button class="btn btn-sm btn-primary" (click)="Editar(reunion)">Editar</button>
-                  <button class="btn btn-sm btn-danger" (click)="Eliminar(reunion)">Eliminar</button>
+                  <button class="btn btn-sm btn-primary" (click)="Editar(orden)">Editar</button>
+                  <button class="btn btn-sm btn-danger" (click)="Eliminar(orden)">Eliminar</button>
                 </td>
               </tr>
             </tbody>
