@@ -4,38 +4,38 @@ import { Empresa } from 'src/app/models/empresa';
 import { EmpresaService } from '../../../services/empresa.service'
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
-import { Orden } from 'src/app/models/Orden';
+import { Detalle } from 'src/app/models/Detalle';
 import { Usuario } from 'src/app/models/usuario';
-import { OrdenService } from 'src/app/services/orden.service';
+import { DetalleService } from 'src/app/services/detalle.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { formatDate } from '@angular/common';
 @Component({
-  selector: 'app-editordenes',
-  templateUrl: './editordenes.component.html',
-  styleUrls: ['./editordenes.component.scss']
+  selector: 'app-editdetalles',
+  templateUrl: './editdetalles.component.html',
+  styleUrls: ['./editdetalles.component.scss']
 })
 
-export class EditOrdenesComponent implements OnInit {
+export class EditDetallesComponent implements OnInit {
   datos: FormGroup;
-  orden: Orden = new Orden();
+  detalle: Detalle = new Detalle();
   usuarios: Usuario[];
   constructor(private serviceEmpresa: EmpresaService, private serviceUsuario: UsuarioService,
-    private serviceOrden: OrdenService, private router: Router, private builder: FormBuilder,
+    private serviceDetalle: DetalleService, private router: Router, private builder: FormBuilder,
     private toastr: ToastrService) {
     this.createBuilder();
   }
 
   loadInfo() {
-    this.serviceOrden.getOrdenId(+localStorage.getItem("idorden"))
+    this.serviceDetalle.getDetalleId(+localStorage.getItem("iddetalle"))
       .subscribe(data => {
-        this.orden = data;
-        this.datos.patchValue({
-          fecha: formatDate(this.orden.fecha, 'yyyy-MM-dd hh:mm aa', 'en-US'),
-          tipo: this.orden.tipo,
-          usuario: this.orden.idvendedor.idusuario,
-          cliente: this.orden.idcomprador.idusuario
-        })
-        console.log('orden', this.orden)
+        this.detalle = data;
+        /*this.datos.patchValue({
+          fecha: formatDate(this.detalle.fecha, 'yyyy-MM-dd hh:mm aa', 'en-US'),
+          tipo: this.detalle.tipo,
+          usuario: this.detalle.idvendedor.idusuario,
+          cliente: this.detalle.idcomprador.idusuario
+        })*/
+        console.log('detalle', this.detalle)
       })
     this.serviceUsuario.getUsuarios()
       .subscribe(data => {
@@ -59,13 +59,9 @@ export class EditOrdenesComponent implements OnInit {
   }
 
   Cancelar() {
-    this.router.navigate(["ordenes"]);
+    this.router.navigate(["detalles"]);
   }
 
-  Regresar() {
-    localStorage.setItem("idorden",this.orden.idorden.toString());
-    this.router.navigate(["detalles"])
-  }
 
   Guardar(event: Event) {
     console.log(this.datos.value)
@@ -82,14 +78,13 @@ export class EditOrdenesComponent implements OnInit {
     }
     console.log(this.datos.value);
     if (this.datos.valid) {
-      this.orden.idcomprador = this.usuarios.find(u => u.idusuario == this.datos.value.usuario);
-      console.log(this.orden);
-      this.serviceOrden.createOrden(this.orden)
+      //this.detalle.idcomprador = this.usuarios.find(u => u.idusuario == this.datos.value.usuario);
+      console.log(this.detalle);
+      this.serviceDetalle.createDetalle(this.detalle)
         .subscribe(data => {
           this.toastr.success("Se ha actualizado el registro!", "Exitoso", {
             timeOut: 3000
           })
-          localStorage.setItem("idorden",this.orden.idorden.toString());
           this.router.navigate(["detalles"])
         })
     }

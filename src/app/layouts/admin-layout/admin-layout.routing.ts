@@ -23,6 +23,9 @@ import { EditReunionesComponent } from 'src/app/pages/reuniones/editreunion/edit
 import { OrdenesComponent } from 'src/app/pages/ordenes/ordenes.component';
 import { AddOrdenesComponent } from 'src/app/pages/ordenes/addorden/addordenes.component';
 import { EditOrdenesComponent } from 'src/app/pages/ordenes/editorden/editordenes.component';
+import { DetallesComponent } from 'src/app/pages/detalles/detalles.component';
+import { AddDetallesComponent } from 'src/app/pages/detalles/adddetalle/adddetalles.component';
+import { EditDetallesComponent } from 'src/app/pages/detalles/editdetalle/editdetalles.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -48,4 +51,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'ordenes',        component: OrdenesComponent },
     { path: 'addorden',       component: AddOrdenesComponent },
     { path: 'editorden',      component: EditOrdenesComponent },
+    { path: 'detalles',       component: DetallesComponent },
+    { path: 'adddetalle',     component: AddDetallesComponent },
+    { path: 'editdetalle',    component: EditDetallesComponent },
 ];

@@ -1,3 +1,4 @@
+<ngx-spinner type="pacman"><p style="font-size: 20px; color: white">Loading...</p></ngx-spinner>
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
@@ -6,13 +7,17 @@
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--7">
-  <div class="container col-md-6 ">
+  <div class = "container col-md-6 ">
     <div class="card">
       <div class="card-header">
-        <h3>Agregar Orden</h3>
+        <h3>Editar Orden</h3>
       </div>
       <div class="card-body">
         <form [formGroup]="datos" (ngSubmit)="Guardar($event)">
+          <div class="form-group">
+            <label for="">Fecha:</label>
+            <input type="text" class="form-control" formControlName="fecha" disabled="true">
+          </div>
           <div class="form-group">
             <label for="">Tipo:</label>
             <select class="form-control" data-toggle="select" title="Simple select" formControlName="tipo">
@@ -22,14 +27,14 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="">Vendedor:</label>
+            <label for="">Usuario:</label>
             <select class="form-control" data-toggle="select" title="Simple select" formControlName="usuario">
               <option value="" disabled selected>Seleccione un usuario...</option>
               <option *ngFor="let usuario of usuarios" value="{{usuario.idusuario}}">{{usuario.usuario}}</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="">Comprador:</label>
+            <label for="">Cliente:</label>
             <select class="form-control" data-toggle="select" title="Simple select" formControlName="cliente">
               <option value="" disabled selected>Seleccione un cliente...</option>
               <option *ngFor="let usuario of usuarios" value="{{usuario.idusuario}}">{{usuario.usuario}}</option>
@@ -44,3 +49,5 @@
     </div>
   </div>
 </div>
+
+

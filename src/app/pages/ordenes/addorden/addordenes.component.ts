@@ -58,7 +58,9 @@ export class AddOrdenesComponent {
       this.toastr.success("Se ha guardado el registro!", "Exitoso",{
         timeOut:3000
       })
-      this.router.navigate(["ordenes"])
+      console.log("Orden almacenada: ", data);
+      localStorage.setItem("idorden",data.idorden.toString());
+      this.router.navigate(["detalles"]);
     })}
 
   }

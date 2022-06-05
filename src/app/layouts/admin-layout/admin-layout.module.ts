@@ -34,6 +34,9 @@ import { EditReunionesComponent } from 'src/app/pages/reuniones/editreunion/edit
 import { OrdenesComponent } from 'src/app/pages/ordenes/ordenes.component';
 import { AddOrdenesComponent } from 'src/app/pages/ordenes/addorden/addordenes.component';
 import { EditOrdenesComponent } from 'src/app/pages/ordenes/editorden/editordenes.component';
+import { DetallesComponent } from 'src/app/pages/detalles/detalles.component';
+import { AddDetallesComponent } from 'src/app/pages/detalles/adddetalle/adddetalles.component';
+import { EditDetallesComponent } from 'src/app/pages/detalles/editdetalle/editdetalles.component';
 
 @NgModule({
   imports: [
@@ -72,7 +75,10 @@ import { EditOrdenesComponent } from 'src/app/pages/ordenes/editorden/editordene
     EditReunionesComponent,
     OrdenesComponent,
     AddOrdenesComponent,
-    EditOrdenesComponent
+    EditOrdenesComponent,
+    DetallesComponent,
+    AddDetallesComponent,
+    EditDetallesComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

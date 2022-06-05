@@ -22,6 +22,7 @@ export class ProductoService {
   }
 
   updateProducto(producto:Producto){
+    console.log("updateProducto:", producto)
     return this.http.put<Producto>(this.url+producto.idproducto,producto);
   }
 
