@@ -166,7 +166,7 @@
                 <th scope="col">Cliente</th>
                 <th scope="col">Vendedor</th>
                 <th scope="col">Fecha</th>
-                <th scope="col"></th>
+                <th scope="col">Total</th>
               </tr>
             </thead>
             <tbody>
@@ -181,13 +181,62 @@
                   {{orden.fecha | date:'yyyy-MM-dd hh:mm aa':'-06:00'}}
                 </td>
                 <td>
-                  {{orden.tipo}}
+                  Q.{{orden.total}}
                 </td>
             </tbody>
           </table>
         </div>
       </div>
     </div>
-
   </div>
+  <div class="row mt-5">
+    <div class="col-xl-12 mb-5 mb-xl-0">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0">Compras por empresa</h3>
+            </div>
+            <div class="col text-right">
+              <form [formGroup]="datos">
+                <div>
+                  <select class="form-control" data-toggle="select" title="Simple select" formControlName="empresa2" (ngModelChange)="UpdateValue2($event)">
+                    <option value="" disabled selected>Seleccione una empresa...</option>
+                    <option *ngFor="let empresa2 of lempresas2" value="{{empresa2.idempresa}}">{{empresa2.nombre}}</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Cliente</th>
+                <th scope="col">Vendedor</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let orden2 of lordenes2">
+                <td>
+                  {{orden2.idcomprador.usuario}}
+                </td>
+                <td>
+                  {{orden2.idvendedor.usuario}}
+                </td>
+                <td>
+                  {{orden2.fecha | date:'yyyy-MM-dd hh:mm aa':'-06:00'}}
+                </td>
+                <td>
+                  Q.{{orden2.total}}
+                </td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 </div>

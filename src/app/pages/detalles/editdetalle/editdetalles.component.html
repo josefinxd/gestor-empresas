@@ -10,35 +10,28 @@
   <div class = "container col-md-6 ">
     <div class="card">
       <div class="card-header">
-        <h3>Editar Orden</h3>
+        <h3>Editar Detalle</h3>
       </div>
       <div class="card-body">
         <form [formGroup]="datos" (ngSubmit)="Guardar($event)">
           <div class="form-group">
-            <label for="">Fecha:</label>
-            <input type="text" class="form-control" formControlName="fecha" disabled="true">
-          </div>
-          <div class="form-group">
-            <label for="">Tipo:</label>
-            <select class="form-control" data-toggle="select" title="Simple select" formControlName="tipo">
-              <option value="Interna" [selected]="true">Interna</option>
-              <option value="Venta">Venta</option>
-              <option value="Compra">Compra</option>
+            <label for="">Producto:</label>
+            <select class="form-control" data-toggle="select" title="Simple select" formControlName="producto" (ngModelChange)="UpdateValue($event)">
+              <option value="" disabled selected>Seleccione un producto...</option>
+              <option *ngFor="let producto of productos" value="{{producto.idproducto}}">{{producto.nombre}}</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="">Usuario:</label>
-            <select class="form-control" data-toggle="select" title="Simple select" formControlName="usuario">
-              <option value="" disabled selected>Seleccione un usuario...</option>
-              <option *ngFor="let usuario of usuarios" value="{{usuario.idusuario}}">{{usuario.usuario}}</option>
-            </select>
+            <label for="">Cantidad:</label>
+            <input type="number" class="form-control" formControlName="cantidad" min="1" oninput="this.value=(parseInt(this.value))" required="true">
           </div>
           <div class="form-group">
-            <label for="">Cliente:</label>
-            <select class="form-control" data-toggle="select" title="Simple select" formControlName="cliente">
-              <option value="" disabled selected>Seleccione un cliente...</option>
-              <option *ngFor="let usuario of usuarios" value="{{usuario.idusuario}}">{{usuario.usuario}}</option>
-            </select>
+            <label for="">Disponibilidad:</label>
+            <input type="text" class="form-control" formControlName="disponibilidad" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="">Precio:</label>
+            <input type="text" class="form-control" formControlName="precio" disabled="true">
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-sm btn-primary">Guardar</button>

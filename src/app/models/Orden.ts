@@ -6,4 +6,5 @@ export class Orden{
   tipo:String;
   idcomprador:Usuario = new Usuario();
   idvendedor:Usuario = new Usuario();
+  total:number;
 }

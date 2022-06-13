@@ -29,7 +29,7 @@ export class DetallesComponent implements OnInit {
   producto: Producto = new Producto();
   constructor(private service: DetalleService, private serviceOrden: OrdenService, private router: Router,
     private serviceUsuario: UsuarioService, private toastr: ToastrService, private spinner: NgxSpinnerService,
-    private confirmationService: ConfirmationService, private builder: FormBuilder, private serviceProducto:ProductoService,
+    private confirmationService: ConfirmationService, private builder: FormBuilder, private serviceProducto: ProductoService,
     private primengConfig: PrimeNGConfig) {
     this.createBuilder();
   }
@@ -37,12 +37,12 @@ export class DetallesComponent implements OnInit {
   createBuilder() {
     console.log("createBuilder");
     this.datos = this.builder.group({
-      id: ['',[]],
-      fecha: ['',[]],
-      tipo: ['',[]],
-      comprador: ['',[]],
-      vendedor: ['',[]],
-      total: ['0',[]]
+      id: ['', []],
+      fecha: ['', []],
+      tipo: ['', []],
+      comprador: ['', []],
+      vendedor: ['', []],
+      total: ['0', []]
     });
   }
 
@@ -55,7 +55,8 @@ export class DetallesComponent implements OnInit {
           fecha: formatDate(this.orden.fecha, 'yyyy-MM-dd hh:mm aa', 'en-US'),
           tipo: this.orden.tipo,
           vendedor: this.orden.idvendedor.usuario,
-          comprador: this.orden.idcomprador.usuario
+          comprador: this.orden.idcomprador.usuario,
+          total: 'Q.' + formatNumber(this.orden.total, 'en-US')
         })
         console.log('orden', this.datos);
         this.service.getDetallesByOrden(this.orden)
@@ -64,13 +65,6 @@ export class DetallesComponent implements OnInit {
             this.spinner.hide();
             this.primengConfig.ripple = true;
             console.log(this.detalles);
-            let totales=0;
-            this.detalles.forEach(d => {
-              totales = totales + (d.cantidad * d.idproducto.precio);
-            });
-            this.datos.patchValue({
-              total: 'Q.' + formatNumber(totales, 'en-US')
-            });
           })
       })
   }
@@ -81,7 +75,7 @@ export class DetallesComponent implements OnInit {
   }
 
   Nuevo() {
-    localStorage.setItem("idorden",this.orden.idorden.toString());
+    localStorage.setItem("idorden", this.orden.idorden.toString());
     this.router.navigate(["adddetalle"]);
   }
 
@@ -109,15 +103,21 @@ export class DetallesComponent implements OnInit {
             this.toastr.success("Se ha eliminado el registro!", "Exitoso", {
               timeOut: 3000
             })
-            this.producto.cantidad = this.producto.cantidad + detalle.cantidad;
-            console.log("actual producto:", this.producto);
-            this.serviceProducto.updateProducto(this.producto)
-              .subscribe(data=>{
-                console.log("actualizando producto: ", data);
+            this.orden.total = this.orden.total - (detalle.cantidad * detalle.idproducto.precio);
+            this.serviceOrden.updateOrden(this.orden)
+              .subscribe(data => {
+                console.log("actualizando orden: ", data);
+                this.producto.cantidad = this.producto.cantidad + detalle.cantidad;
+                console.log("actual producto:", this.producto);
+                this.serviceProducto.updateProducto(this.producto)
+                  .subscribe(data => {
+                    console.log("actualizando producto: ", data);
+                    this.loadInfo();
+                    this.router.navigate(["detalles"]);
+                  })
               })
           });
-        this.router.navigate(["detalles"]);
-        this.loadInfo();
+
       },
       reject: () => {
         this.toastr.warning("Cancelo la acción", "Advertencia", {

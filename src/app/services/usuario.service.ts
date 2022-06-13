@@ -9,6 +9,7 @@ export class UsuarioService {
 
   constructor(private http:HttpClient){}
   url='http://localhost:1110/usuario/';
+  loginurl = 'http://localhost:1110/login';
 
   getUsuarios(){
     return this.http.get<Usuario[]>(this.url+"listar");
@@ -17,7 +18,7 @@ export class UsuarioService {
     return this.http.post<Usuario>(this.url,usuario);
   }
 
-  async getUsuarioId(id:number){
+  getUsuarioId(id:number){
     return this.http.get<Usuario>(this.url+id)
   }
 
@@ -27,5 +28,9 @@ export class UsuarioService {
 
   deleteUsuario(usuario:Usuario){
     return this.http.delete<Usuario>(this.url+usuario.idusuario);
+  }
+
+  loginUsuario(usuario:Usuario){
+    return this.http.post<Usuario>(this.loginurl,usuario);
   }
 }

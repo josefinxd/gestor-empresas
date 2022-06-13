@@ -32,8 +32,10 @@ export class DashboardComponent implements OnInit {
   public clicked1: boolean = false;
   ordenes: Orden[];
   lempresas: Empresa[];
+  lempresas2: Empresa[];
   nordenes: Orden[];
   lordenes: Orden[];
+  lordenes2: Orden[];
   asignaciones: Asignacion[];
   auxasig: Asignacion[];
   public internas: String = '0';
@@ -47,6 +49,7 @@ export class DashboardComponent implements OnInit {
     this.serviceEmpresa.getEmpresas()
       .subscribe(data => {
         this.lempresas = data;
+        this.lempresas2 = data;
         console.log(this.lempresas);
       })
     this.serviceAsignacion.getAsignaciones()
@@ -59,7 +62,8 @@ export class DashboardComponent implements OnInit {
 
   createBuilder() {
     this.datos = this.builder.group({
-      empresa: ['', {}]
+      empresa: ['', {}],
+      empresa2: ['', {}]
     });
   }
 
@@ -114,6 +118,7 @@ export class DashboardComponent implements OnInit {
     this.lordenes =[];
     this.auxasig = this.asignaciones.filter(a => a.idempresa.idempresa == this.datos.value.empresa);
     console.log(this.auxasig)
+    this.nordenes =[];
     this.nordenes= this.ordenes.filter(e => e.tipo == "Venta" );
     this.nordenes.forEach(n => {
       this.auxasig.forEach( a =>{
@@ -122,9 +127,25 @@ export class DashboardComponent implements OnInit {
         }
       });
     });
-
-
     console.log(this.datos.value.empresa, this.lordenes);
+  }
+
+  UpdateValue2(event: Event) {
+    console.log(this.asignaciones)
+    console.log(this.datos.value);
+    this.lordenes2 =[];
+    this.auxasig = this.asignaciones.filter(a => a.idempresa.idempresa == this.datos.value.empresa2);
+    console.log(this.auxasig)
+    this.nordenes =[];
+    this.nordenes= this.ordenes.filter(e => e.tipo == "Compra" );
+    this.nordenes.forEach(n => {
+      this.auxasig.forEach( a =>{
+        if(a.idusuario.idusuario == n.idcomprador.idusuario){
+          this.lordenes2.push(n);
+        }
+      });
+    });
+    console.log(this.datos.value.empresa2, this.lordenes2);
   }
 
   public updateOptions() {

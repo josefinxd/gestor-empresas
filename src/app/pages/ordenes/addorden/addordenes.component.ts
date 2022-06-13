@@ -52,6 +52,7 @@ export class AddOrdenesComponent {
       this.orden.fecha = new Date();
       this.orden.idvendedor = this.usuarios.find(u => u.idusuario == this.datos.value.usuario);
       this.orden.idcomprador = this.usuarios.find(u => u.idusuario == this.datos.value.cliente);
+      this.orden.total = 0.00;
       console.log(this.orden);
       this.serviceOrden.createOrden(this.orden)
     .subscribe(data=>{

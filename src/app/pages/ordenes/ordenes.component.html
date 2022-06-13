@@ -27,6 +27,7 @@
                 <th scope="col">Tipo</th>
                 <th scope="col">Vendedor</th>
                 <th scope="col">Comprador</th>
+                <th scope="col">Total</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -46,6 +47,9 @@
                 </td>
                 <td>
                   {{orden.idcomprador.usuario}}
+                </td>
+                <td>
+                  Q.{{orden.total | number}}
                 </td>
                 <td class="text-right">
                   <button class="btn btn-sm btn-primary" (click)="Editar(orden)">Editar</button>
