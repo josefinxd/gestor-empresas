@@ -8,8 +8,8 @@ import { Usuario } from '../models/Usuario'
 export class UsuarioService {
 
   constructor(private http:HttpClient){}
-  url='http://backendgestorproyectos01-env.eba-spf4u5uu.us-east-1.elasticbeanstalk.com/usuario/';
-  loginurl = 'http://backendgestorproyectos01-env.eba-spf4u5uu.us-east-1.elasticbeanstalk.com/login';
+  url='https://backendgestorproyectos02-env.eba-k3pf5xkd.us-east-1.elasticbeanstalk.com/usuario/';
+  loginurl = 'https://backendgestorproyectos02-env.eba-k3pf5xkd.us-east-1.elasticbeanstalk.com/login';
 
   getUsuarios(){
     return this.http.get<Usuario[]>(this.url+"listar");

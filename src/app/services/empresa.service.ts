@@ -8,7 +8,7 @@ import { Empresa } from '../models/Empresa'
 export class EmpresaService {
 
   constructor(private http:HttpClient){}
-  url='http://backendgestorproyectos01-env.eba-spf4u5uu.us-east-1.elasticbeanstalk.com/empresa/';
+  url='https://backendgestorproyectos02-env.eba-k3pf5xkd.us-east-1.elasticbeanstalk.com/empresa/';
 
   getEmpresas(){
     return this.http.get<Empresa[]>(this.url+"listar");
