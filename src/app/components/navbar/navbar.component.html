@@ -6,10 +6,7 @@
       <div class="form-group mb-0" [ngClass]="{ 'focused': focus === true }">
         <div class="input-group input-group-alternative">
           <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-search"></i></span>
           </div>
-          <input class="form-control" placeholder="Search" type="text" (focus)="focus = true"
-          (blur)="focus = false">
         </div>
       </div>
     </form>
@@ -22,22 +19,22 @@
               <img alt="Image placeholder" src="assets/img/theme/usuario-sin-foto.png">
             </span>
             <div class="media-body ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold">Juan Lopez</span>
+              <span class="mb-0 text-sm  font-weight-bold">{{user.usuario}}</span>
             </div>
           </div>
         </a>
         <div class="dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu>
           <div class=" dropdown-header noti-title">
-            <h6 class="text-overflow m-0">Welcome!</h6>
+            <h6 class="text-overflow m-0">Bienvenido!</h6>
           </div>
           <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
             <i class="ni ni-single-02"></i>
-            <span>My profile</span>
+            <span>Mi Perfil</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#!" class="dropdown-item">
+          <a class="dropdown-item" (click)="logout()">
             <i class="ni ni-user-run"></i>
-            <span>Logout</span>
+            <span>Cerrar Sesión</span>
           </a>
         </div>
       </li>

@@ -1,6 +1,6 @@
 export class Usuario{
   idusuario:number;
-  usuario:String;
+  usuario:String = '';
   correo:String;
   nombres:String;
   apellidos:String;
@@ -8,5 +8,5 @@ export class Usuario{
   ciudad:String;
   municipio:String;
   celular:String;
-  password:String;
+  password:String = '';
 }

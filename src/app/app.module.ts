@@ -26,6 +26,7 @@ import { AsignacionService } from './services/asignaciones.service';
 import { DetalleService } from './services/detalle.service';
 import { OrdenService } from './services/orden.service';
 import { ReunionService } from './services/reunion.service';
+import { StorageService } from './services/storage.service';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ReunionService } from './services/reunion.service';
     AsignacionService,
     DetalleService,
     OrdenService,
-    ReunionService],
+    ReunionService,
+    StorageService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

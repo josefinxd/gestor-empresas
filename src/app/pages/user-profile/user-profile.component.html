@@ -5,9 +5,8 @@
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
       <div class="col-lg-7 col-md-10">
-        <h1 class="display-2 text-white">Hola Juan</h1>
-        <p class="text-white mt-0 mb-5">Esta es tu pagina de perfil. En esta puedes actualizar tu información personal.</p>
-        <a href="#!" class="btn btn-info">Editar perfil</a>
+        <h1 class="display-2 text-white">Hola {{user.nombres}}</h1>
+        <p class="text-white mt-0 mb-5">Esta es tu pagina de perfil. En esta puedes ver tu información personal.</p>
       </div>
     </div>
   </div>
@@ -31,13 +30,13 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-usuario">Usuario:</label>
-                    <input type="text" id="input-usuario" class="form-control form-control-alternative" placeholder="Usuario" value="">
+                    <input type="text" id="input-usuario" class="form-control form-control-alternative" placeholder="Usuario" value="{{user.usuario}}">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-correo">Correo:</label>
-                    <input type="email" id="input-correo" class="form-control form-control-alternative" placeholder="gestor@example.com">
+                    <input type="email" id="input-correo" class="form-control form-control-alternative" placeholder="gestor@example.com" value="{{user.correo}}">
                   </div>
                 </div>
               </div>
@@ -45,13 +44,13 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-nombres">Nombre(s)</label>
-                    <input type="text" id="input-nombres" class="form-control form-control-alternative" placeholder="Nombre(s)" value="">
+                    <input type="text" id="input-nombres" class="form-control form-control-alternative" placeholder="Nombre(s)" value="{{user.nombres}}">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-apellidos">Apellido(s)</label>
-                    <input type="text" id="input-apellidos" class="form-control form-control-alternative" placeholder="Apellido(s)" value="">
+                    <input type="text" id="input-apellidos" class="form-control form-control-alternative" placeholder="Apellido(s)" value="{{user.apellidos}}">
                   </div>
                 </div>
               </div>
@@ -64,7 +63,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="form-control-label" for="input-address">Dirección</label>
-                    <input id="input-address" class="form-control form-control-alternative" placeholder="Dirección" value="" type="text">
+                    <input id="input-address" class="form-control form-control-alternative" placeholder="Dirección" value="{{user.direccion}}" type="text">
                   </div>
                 </div>
               </div>
@@ -72,19 +71,19 @@
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-ciudad">Ciudad</label>
-                    <input type="text" id="input-ciudad" class="form-control form-control-alternative" placeholder="Ciudad" value="">
+                    <input type="text" id="input-ciudad" class="form-control form-control-alternative" placeholder="Ciudad" value="{{user.ciudad}}">
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-municipio">Municipio</label>
-                    <input type="text" id="input-municipio" class="form-control form-control-alternative" placeholder="Municipio" value="">
+                    <input type="text" id="input-municipio" class="form-control form-control-alternative" placeholder="Municipio" value="{{user.municipio}}">
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-celular">Número celular:</label>
-                    <input type="text" id="input-celular" class="form-control form-control-alternative" placeholder="Celular">
+                    <input type="text" id="input-celular" class="form-control form-control-alternative" placeholder="Celular" value="{{user.celular}}">
                   </div>
                 </div>
               </div>
@@ -97,21 +96,21 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-empresa">Empresa</label>
-                    <input type="text" id="input-empresa" class="form-control form-control-alternative" placeholder="Empresa" value="">
+                    <input type="text" id="input-empresa" class="form-control form-control-alternative" placeholder="Empresa" value="{{asignacion.idempresa.nombre}}">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-puesto">Puesto</label>
-                    <input type="text" id="input-puesto" class="form-control form-control-alternative" placeholder="Puesto" value="">
+                    <label class="form-control-label" for="input-puesto">Rol</label>
+                    <input type="text" id="input-puesto" class="form-control form-control-alternative" placeholder="Puesto" value="{{asignacion.rol}}">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-14 text-right">
+            <!-- <div class="col-14 text-right">
               <a href="#" class="btn btn-sm btn-primary disabled">Guardar</a>
               <a href="#" class="btn btn-sm btn-danger disabled">Cancelar</a>
-            </div>
+            </div>-->
           </form>
         </div>
       </div>
