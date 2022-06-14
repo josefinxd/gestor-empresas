@@ -8,7 +8,7 @@ import { Producto } from '../models/producto'
 export class ProductoService {
 
   constructor(private http:HttpClient){}
-  url='http://localhost:1110/producto/';
+  url='http://backendgestorproyectos01-env.eba-spf4u5uu.us-east-1.elasticbeanstalk.com/producto/';
 
   getProductos(){
     return this.http.get<Producto[]>(this.url+"listar");

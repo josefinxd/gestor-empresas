@@ -20,6 +20,7 @@ import {
   chartExample1,
   chartExample2
 } from "../../variables/charts";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -51,7 +52,8 @@ export class DashboardComponent implements OnInit {
   dataV: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   constructor(private service: OrdenService, private spinner: NgxSpinnerService, private serviceEmpresa: EmpresaService,
-    private primengConfig: PrimeNGConfig, private builder: FormBuilder, private serviceAsignacion: AsignacionService) {
+    private primengConfig: PrimeNGConfig, private builder: FormBuilder, private serviceAsignacion: AsignacionService,
+    private toastr: ToastrService) {
     this.serviceEmpresa.getEmpresas()
       .subscribe(data => {
         this.lempresas = data;
@@ -95,7 +97,7 @@ export class DashboardComponent implements OnInit {
             console.log('datosv', element);
             if (+formatDate(element.fecha, 'MM', 'en-US') - 1 == index) {
               this.datosV[index] = this.datosV[index] + element.total;
-              this.dataV[index] = this.dataV[index] +1;
+              this.dataV[index] = this.dataV[index] + 1;
             }
           });
         }
@@ -171,29 +173,42 @@ export class DashboardComponent implements OnInit {
   }
 
   public openVentasPDF(): void {
-    let DATA: any = document.getElementById('htmlVentas');
-    html2canvas(DATA).then((canvas) => {
-      let fileWidth = 208;
-      let fileHeight = (canvas.height * fileWidth) / canvas.width;
-      const FILEURI = canvas.toDataURL('image/png');
-      let PDF = new jsPDF('p', 'mm', 'a4');
-      let position = 0;
-      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
-      PDF.save('Ventas-'+ this.lempresas.find(e => e.idempresa == this.datos.value.empresa).nombre +'.pdf');
-    });
+    if (this.datos.value.empresa === '') {
+      this.toastr.error("Debe seleccionar una empresa!", "Error", {
+        timeOut: 3000
+      })
+    } else {
+      let DATA: any = document.getElementById('htmlVentas');
+      html2canvas(DATA).then((canvas) => {
+        let fileWidth = 208;
+        let fileHeight = (canvas.height * fileWidth) / canvas.width;
+        const FILEURI = canvas.toDataURL('image/png');
+        let PDF = new jsPDF('p', 'mm', 'a4');
+        let position = 0;
+        PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+        PDF.save('Ventas-' + this.lempresas.find(e => e.idempresa == this.datos.value.empresa).nombre + '.pdf');
+      });
+    }
+
   }
 
   public openComprasPDF(): void {
-    let DATA: any = document.getElementById('htmlCompras');
-    html2canvas(DATA).then((canvas) => {
-      let fileWidth = 208;
-      let fileHeight = (canvas.height * fileWidth) / canvas.width;
-      const FILEURI = canvas.toDataURL('image/png');
-      let PDF = new jsPDF('p', 'mm', 'a4');
-      let position = 0;
-      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
-      PDF.save('Ventas-'+ this.lempresas2.find(e => e.idempresa == this.datos.value.empresa2).nombre +'.pdf');
-    });
+    if (this.datos.value.empresa === '') {
+      this.toastr.error("Debe seleccionar una empresa!", "Error", {
+        timeOut: 3000
+      })
+    } else {
+      let DATA: any = document.getElementById('htmlCompras');
+      html2canvas(DATA).then((canvas) => {
+        let fileWidth = 208;
+        let fileHeight = (canvas.height * fileWidth) / canvas.width;
+        const FILEURI = canvas.toDataURL('image/png');
+        let PDF = new jsPDF('p', 'mm', 'a4');
+        let position = 0;
+        PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+        PDF.save('Compras-' + this.lempresas2.find(e => e.idempresa == this.datos.value.empresa2).nombre + '.pdf');
+      });
+    }
   }
 
 }

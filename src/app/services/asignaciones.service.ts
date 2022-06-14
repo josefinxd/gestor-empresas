@@ -8,7 +8,7 @@ import { Asignacion } from '../models/asignacion'
 export class AsignacionService {
 
   constructor(private http:HttpClient){}
-  url='http://localhost:1110/asignacion/';
+  url='http://backendgestorproyectos01-env.eba-spf4u5uu.us-east-1.elasticbeanstalk.com/asignacion/';
 
   getAsignaciones(){
     return this.http.get<Asignacion[]>(this.url+"listar");

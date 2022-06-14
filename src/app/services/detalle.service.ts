@@ -9,7 +9,7 @@ import { Orden } from "../models/Orden";
 export class DetalleService {
 
   constructor(private http:HttpClient){}
-  url='http://localhost:1110/detalle/';
+  url='http://backendgestorproyectos01-env.eba-spf4u5uu.us-east-1.elasticbeanstalk.com/detalle/';
 
   getDetalles(){
     return this.http.get<Detalle[]>(this.url+"listar");

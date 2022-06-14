@@ -40,14 +40,31 @@ export class LoginComponent implements OnInit, OnDestroy {
     console.log('submitLogin')
     this.submitted = true;
     this.error = null;
+    if (this.loginForm.value.user === '') {
+      this.toastr.error("Debe ingresar usuario", "Error", {
+        timeOut: 3000
+      })
+    }
+    if (this.loginForm.value.password === '') {
+      this.toastr.error("Debe ingresar contraseña!", "Error", {
+        timeOut: 3000
+      })
+    }
     if(this.loginForm.valid){
       console.log(this.loginForm.value);
       this.usuario.usuario = this.loginForm.value.user;
       this.usuario.password = this.loginForm.value.password;
       this.service.loginUsuario(this.usuario).subscribe(
         data => {
-          this.sesion.user = data;
-          this.correctLogin(this.sesion)
+          console.log('data', data)
+          if(data == null){
+            this.toastr.error("Usuario o contraseña invalidos!", "Error", {
+              timeOut: 3000
+            })
+          }else{
+            this.sesion.user = data;
+            this.correctLogin(this.sesion)
+          }
         },
         error => this.error = JSON.parse(error._body)
       )

@@ -8,7 +8,7 @@ import { Orden } from '../models/orden'
 export class OrdenService {
 
   constructor(private http:HttpClient){}
-  url='http://localhost:1110/orden/';
+  url='http://backendgestorproyectos01-env.eba-spf4u5uu.us-east-1.elasticbeanstalk.com/orden/';
 
   getOrdenes(){
     return this.http.get<Orden[]>(this.url+"listar");

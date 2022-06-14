@@ -8,7 +8,7 @@ import { Reunion } from '../models/reunion'
 export class ReunionService {
 
   constructor(private http:HttpClient){}
-  url='http://localhost:1110/reunion/';
+  url='http://backendgestorproyectos01-env.eba-spf4u5uu.us-east-1.elasticbeanstalk.com/reunion/';
 
   getReuniones(){
     return this.http.get<Reunion[]>(this.url+"listar");
