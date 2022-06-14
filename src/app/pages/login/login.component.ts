@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       })
     }
     if(this.loginForm.valid){
-      console.log(this.loginForm.value);
       this.usuario.usuario = this.loginForm.value.user;
       this.usuario.password = this.loginForm.value.password;
       this.service.loginUsuario(this.usuario).subscribe(
