@@ -9,7 +9,7 @@ import { Usuario } from 'src/app/models/Usuario';
 import { ReunionService } from 'src/app/services/reunion.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { formatDate } from '@angular/common';
-import { Fecha } from 'src/app/models/fecha';
+import { Fecha } from 'src/app/models/Fecha';
 
 @Component({
   selector: 'app-editreuniones',

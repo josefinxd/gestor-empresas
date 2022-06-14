@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 import { Detalle } from 'src/app/models/Detalle';
 import { DetalleService } from 'src/app/services/detalle.service';
-import { Orden } from 'src/app/models/orden';
+import { Orden } from 'src/app/models/Orden';
 import { Producto } from 'src/app/models/Producto';
 import { ProductoService } from 'src/app/services/producto.service';
 import { OrdenService } from 'src/app/services/orden.service';
