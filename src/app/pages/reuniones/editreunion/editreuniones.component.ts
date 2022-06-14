@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Empresa } from 'src/app/models/empresa';
+import { Empresa } from 'src/app/models/Empresa';
 import { EmpresaService } from '../../../services/empresa.service'
 import { FormGroup, FormBuilder, Validators} from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
