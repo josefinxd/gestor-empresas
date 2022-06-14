@@ -12,7 +12,7 @@ import { formatDate, formatNumber } from '@angular/common';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProductoService } from 'src/app/services/producto.service';
-import { Producto } from 'src/app/models/producto';
+import { Producto } from 'src/app/models/Producto';
 
 @Component({
   selector: 'app-detalles',

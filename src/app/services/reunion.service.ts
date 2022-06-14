@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Reunion } from '../models/reunion'
+import { Reunion } from '../models/Reunion'
 
 @Injectable({
   providedIn: 'root'

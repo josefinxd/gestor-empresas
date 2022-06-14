@@ -5,7 +5,7 @@ import { EmpresaService } from '../../../services/empresa.service'
 import { FormGroup, FormBuilder, Validators} from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 import { Reunion } from 'src/app/models/Reunion';
-import { Usuario } from 'src/app/models/usuario';
+import { Usuario } from 'src/app/models/Usuario';
 import { ReunionService } from 'src/app/services/reunion.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { formatDate } from '@angular/common';

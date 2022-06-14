@@ -1,6 +1,5 @@
-import { Empresa } from "./empresa";
-import { Usuario } from "./usuario";
-
+import { Empresa } from "./Empresa";
+import { Usuario } from "./Usuario";
 export class Asignacion{
   idasignacion:number;
   rol:String;

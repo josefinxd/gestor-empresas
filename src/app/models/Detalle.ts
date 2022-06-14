@@ -1,5 +1,5 @@
 import { Orden } from "./Orden";
-import { Producto } from "./producto";
+import { Producto } from "./Producto";
 
 export class Detalle{
   iddetalle:number;

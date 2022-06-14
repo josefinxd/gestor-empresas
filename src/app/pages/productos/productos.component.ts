@@ -4,7 +4,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from "ngx-spinner";
 import { PrimeNGConfig } from 'primeng/api';
 import {ConfirmationService} from 'primeng/api';
-import { Producto } from 'src/app/models/producto';
+import { Producto } from 'src/app/models/Producto';
 import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({

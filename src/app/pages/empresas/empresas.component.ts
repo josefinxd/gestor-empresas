@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { Empresa } from 'src/app/models/empresa';
+import { Empresa } from 'src/app/models/Empresa';
 import { EmpresaService } from '../../services/empresa.service'
 import { NgxSpinnerService } from "ngx-spinner";
 import { PrimeNGConfig } from 'primeng/api';

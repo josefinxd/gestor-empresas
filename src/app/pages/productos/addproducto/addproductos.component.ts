@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators} from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 import { ProductoService } from 'src/app/services/producto.service';
-import { Producto } from 'src/app/models/producto';
-import { Empresa } from 'src/app/models/empresa';
+import { Producto } from 'src/app/models/Producto';
+import { Empresa } from 'src/app/models/Empresa';
 import { EmpresaService } from 'src/app/services/empresa.service';
 
 @Component({

@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators} from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
-import { Producto } from 'src/app/models/producto';
+import { Producto } from 'src/app/models/Producto';
 import { ProductoService } from 'src/app/services/producto.service';
-import { Empresa } from 'src/app/models/empresa';
+import { Empresa } from 'src/app/models/Empresa';
 import { EmpresaService } from 'src/app/services/empresa.service';
 
 @Component({

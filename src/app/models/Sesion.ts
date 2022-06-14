@@ -1,4 +1,4 @@
-import { Usuario } from "./usuario";
+import { Usuario } from "./Usuario";
 
 export class Session {
   public token: string = 'fake-token-jwt';

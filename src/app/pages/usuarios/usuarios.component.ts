@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { Empresa } from 'src/app/models/empresa';
 import { NgxSpinnerService } from "ngx-spinner";
 import { PrimeNGConfig } from 'primeng/api';
 import {ConfirmationService} from 'primeng/api';
-import { Usuario } from 'src/app/models/usuario';
+import { Usuario } from 'src/app/models/Usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
