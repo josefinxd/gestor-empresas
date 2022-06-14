@@ -35,4 +35,4 @@ jobs:
 
     - name: Deploy
       if: success()
-      run: aws s3 sync ./dist s3://gestor-empresas-s3
+      run: aws s3 sync ./dist/gestor-empresas-s3 s3://gestor-empresas-s3
